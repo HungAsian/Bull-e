@@ -12,6 +12,7 @@ public class Player1Movement : MonoBehaviour {
 
     // Private Variables
     CharacterController player;
+    float verticalGravity;
 
     // FSM for animations maybe
     public enum MovementState {
@@ -35,8 +36,12 @@ public class Player1Movement : MonoBehaviour {
         movement = transform.TransformDirection(movement);
         movement.x *= horizontalMoveSpeed;
         movement.z *= verticalMoveSpeed;
-        if (Input.GetButtonDown("Jump")) movement.y = jumpStrength;
-        else movement.y -= gravity * Time.deltaTime;
+        if (player.isGrounded)
+        {
+            if (Input.GetButtonDown("Jump")) verticalGravity = jumpStrength;
+        }
+        else verticalGravity -= gravity * Time.deltaTime;
+        movement.y = verticalGravity;
         player.Move(movement * Time.deltaTime);
 	}
 }
