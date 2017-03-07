@@ -1,4 +1,12 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Hung Sandbox/Sandbox.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Vaughan Sandbox/planes shenanigans.unity
+=======
+- path: Assets/Jardain Sandbox/Jardain's Scene.unity
+>>>>>>> 29256a7a8c4f8a127732dd926b0b4a4c7306e4f8
+>>>>>>> 57d7c0c9ec316483d7a68d39a644f887c607c4cb
   isLoaded: 1
   isActive: 1
