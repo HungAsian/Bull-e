@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Vaughan Sandbox/planes shenanigans.unity
+=======
+- path: Assets/Jardain Sandbox/Jardain's Scene.unity
+>>>>>>> 29256a7a8c4f8a127732dd926b0b4a4c7306e4f8
   isLoaded: 1
   isActive: 1

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Movement : MonoBehaviour {
+public class PlayerMovementPE : MonoBehaviour {
 
     // Public Variables
     public float horizontalMoveSpeed;
@@ -12,11 +12,19 @@ public class Player1Movement : MonoBehaviour {
 
     // Private Variables
     CharacterController player;
-    float verticalGravity;
 
     // FSM for animations maybe
-    public enum MovementState {
-        idle
+    public enum MovementState
+    {
+        grounded,
+        jumping,
+        running,
+        crouching,
+    }
+    public enum FightingState{
+        attack,
+        block,
+        moving
     }
 
 	// Use this for initialization
@@ -35,13 +43,10 @@ public class Player1Movement : MonoBehaviour {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         movement = transform.TransformDirection(movement);
         movement.x *= horizontalMoveSpeed;
-        movement.z *= verticalMoveSpeed;
-        if (player.isGrounded)
-        {
-            if (Input.GetButtonDown("Jump")) verticalGravity = jumpStrength;
-        }
-        else verticalGravity -= gravity * Time.deltaTime;
-        movement.y = verticalGravity;
+        movement.z = 0 ;
+        if (Input.GetButtonDown("Jump")) movement.y = jumpStrength;
+        else movement.y -= gravity * Time.deltaTime;
         player.Move(movement * Time.deltaTime);
 	}
+    
 }
