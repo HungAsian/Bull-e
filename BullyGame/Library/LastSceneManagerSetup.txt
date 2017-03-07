@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Hung Sandbox/Sandbox.unity
+- path: Assets/Vaughan Sandbox/planes shenanigans.unity
   isLoaded: 1
   isActive: 1
