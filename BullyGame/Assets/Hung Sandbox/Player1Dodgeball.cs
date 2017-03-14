@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Movement : MonoBehaviour {
+public class Player1Dodgeball : MonoBehaviour {
 
     // Public Variables
     public float horizontalMoveSpeed;
     public float verticalMoveSpeed;
     public float jumpStrength;
     public float gravity;
+    public bool isArmed;
+    public GameObject dodgeball;
+    public float throwStrength;
 
     // Private Variables
     CharacterController player;
     float verticalGravity;
 
+    //debug
+    public GameObject target;
+
     // FSM for animations maybe
-    public enum MovementState {
+    public enum MovementState 
+    {
         idle
     }
 
@@ -43,5 +50,24 @@ public class Player1Movement : MonoBehaviour {
         else verticalGravity -= gravity * Time.deltaTime;
         movement.y = verticalGravity;
         player.Move(movement * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.F6)) isArmed = true;
+
+        if (isArmed && Input.GetButtonDown("Fire1"))
+        {
+            GameObject projectile = Instantiate(dodgeball,transform.position + new Vector3(.5f,0,0),Quaternion.identity);
+            Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
+            Vector3 direction = Vector3.Normalize(target.transform.position - transform.position);
+            projectileRB.AddForce(direction * throwStrength);
+        }
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Dodgeball" && !isArmed)
+        {
+            isArmed = true;
+            Destroy(collision.gameObject);
+        }
+    }
 }
