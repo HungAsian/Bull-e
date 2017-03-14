@@ -1,4 +1,1 @@
-sceneSetups:
-- path: Assets/Jardain Sandbox/Jardain's Scene.unity
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
