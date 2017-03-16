@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Dodgeball : MonoBehaviour {
+public class PlayerDodgeball : MonoBehaviour {
 
     // Public Variables
     public float horizontalMoveSpeed;
