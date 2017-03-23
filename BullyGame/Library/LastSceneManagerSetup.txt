@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Alexis Sandbox/3d model test.unity
+=======
+- path: Assets/Hung Sandbox/Sandbox.unity
+>>>>>>> origin/master
   isLoaded: 1
   isActive: 1
