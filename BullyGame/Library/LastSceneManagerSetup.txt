@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Alexis Sandbox/3d model test.unity
-=======
-- path: Assets/Hung Sandbox/Sandbox.unity
->>>>>>> origin/master
+- path: Assets/Vaughan Sandbox/planes shenanigans.unity
   isLoaded: 1
   isActive: 1
