@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 7602bb765a239574fb75b01027cd03b3
+timeCreated: 1490824582
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SF Collegiate
+  fontNames:
+  - SF Collegiate
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

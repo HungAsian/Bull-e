@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Alexis Sandbox/3d model test.unity
+- path: Assets/Alexis Sandbox/MainMenu.unity
   isLoaded: 1
   isActive: 1
