@@ -1,5 +1,6 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Hung Sandbox/Sandbox.unity
 =======
 <<<<<<< HEAD
@@ -12,5 +13,8 @@ sceneSetups:
 >>>>>>> Vaughan
 >>>>>>> 34562d5213a178ad51dfebc580b9234fe5b8782b
 >>>>>>> d0fbc2076867fb2acbdd8dd133dd91988bbc55b8
+=======
+- path: Assets/Alexis Sandbox/MainMenu.unity
+>>>>>>> alexisstuff
   isLoaded: 1
   isActive: 1
