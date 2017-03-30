@@ -104,7 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd78ad1e84c81f40a1a6d851659b634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMoveSpeed: 0
-  verticalMoveSpeed: 0
-  jumpStrength: 60
-  gravity: 200
+  horizontalMoveSpeed: 10
+  verticalMoveSpeed: 15
+  jumpStrength: 16
+  gravity: 100
+  isArmed: 0
+  dodgeball: {fileID: 1828292360158804, guid: 19e0c7062f86b1c4f8b7ce02f269af88, type: 2}
+  throwStrength: 100
+  target: {fileID: 0}
