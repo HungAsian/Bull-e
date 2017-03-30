@@ -28,3 +28,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+BullyGame/Library/ShaderCache.db
+BullyGame/Library/ScriptAssemblies/BuiltinAssemblies.stamp
+BullyGame/Library/ShaderCache.db

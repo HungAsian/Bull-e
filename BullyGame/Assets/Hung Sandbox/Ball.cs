@@ -5,28 +5,34 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     Rigidbody rb;
+    float multiplier;
 
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(1, 0, 1) * 1000 * Time.deltaTime;
+        rb.velocity = new Vector3(1, 0, 1) * 100 * Time.deltaTime;
+        multiplier = 1.00f;
+        StartCoroutine("SpeedUp");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter(Collision collider)
     {
-        Debug.Log("Collision");
-        Debug.Log(collider.transform.parent.name);
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        Transform bat = collider.transform.parent.transform.parent.transform.parent.transform.GetChild(0).GetChild(0).transform;
-        Vector3 side1 = transform.position - player.position;
-        Vector3 side2 = bat.position - player.position;
-        Vector3.Reflect(rb.velocity, -Vector3.Cross(Vector3.Cross(side1, side2), side2));
-        Debug.DrawLine(transform.position, -Vector3.Cross(Vector3.Cross(side1, side2), side2).normalized * 100);
-        Debug.Break();
+        rb.velocity *= multiplier;
     }
+
+    IEnumerator SpeedUp()
+    {
+        float counter = 1f;
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+            multiplier += .01f;
+            Debug.Log(multiplier);
+        }
+    }
+
 }
