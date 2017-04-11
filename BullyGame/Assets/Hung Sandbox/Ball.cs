@@ -6,11 +6,13 @@ public class Ball : MonoBehaviour {
 
     Rigidbody rb;
     float multiplier;
+    GameController gc;
 
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(1, 0, 1) * 100 * Time.deltaTime;
+        rb.velocity = new Vector3(1, 0, 1) * 200 * Time.deltaTime;
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         multiplier = 1.00f;
         StartCoroutine("SpeedUp");
 	}
@@ -22,11 +24,13 @@ public class Ball : MonoBehaviour {
     void OnCollisionEnter(Collision collider)
     {
         rb.velocity *= multiplier;
+        if (collider.gameObject.name == "Cylinder") gc.P1_score += 1;
+        if (collider.gameObject.tag == "Player") gc.EndGame();
     }
 
     IEnumerator SpeedUp()
     {
-        float counter = 1f;
+        float multiplier = 1f;
         while (true)
         {
             yield return new WaitForSeconds(5);

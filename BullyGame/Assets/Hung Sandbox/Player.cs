@@ -12,6 +12,9 @@ public class Player : MonoBehaviour {
     CharacterController player;
     float verticalGravity;
     MovementState currentState;
+    Transform CoG;
+    Transform Paddle;
+    Rigidbody PaddleRB;
 
     //debug
     public GameObject target;
@@ -29,6 +32,9 @@ public class Player : MonoBehaviour {
         {
             player = gameObject.AddComponent<CharacterController>();
         }
+        CoG = transform.GetChild(0);
+        Paddle = CoG.transform.GetChild(0);
+        PaddleRB = Paddle.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -37,9 +43,6 @@ public class Player : MonoBehaviour {
         {
             case MovementState.movable:
                 Movement();
-                break;
-            case MovementState.swinging:
-                Swing();
                 break;
         }
 	}
@@ -55,13 +58,24 @@ public class Player : MonoBehaviour {
         movement.y = verticalGravity;
         player.Move(movement * Time.deltaTime);
 
-
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
         {
-            Transform child = transform.GetChild(0);
-            Rigidbody childrb = child.GetComponent<Rigidbody>();
-            childrb.AddForce(Vector3.Normalize(childrb.position - transform.position) * 300);
-            Debug.Log(Vector3.Normalize(childrb.position - transform.position));
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
+            {
+                Debug.Log(Vector3.Normalize(Paddle.position - transform.position));
+                PaddleRB.AddForce(Vector3.Normalize(Paddle.position - transform.position) * 500);
+            }
+        }
+        else
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                CoG.Rotate(Vector3.up, -300f * Time.deltaTime);
+            }
+            if (Input.GetButton("Fire2"))
+            {
+                CoG.Rotate(Vector3.up, 300f * Time.deltaTime);
+            }
         }
     }
 
